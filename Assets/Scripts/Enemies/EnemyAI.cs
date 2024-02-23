@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
     // Declare a private enumeration named State with a single value, Roaming
     private enum State

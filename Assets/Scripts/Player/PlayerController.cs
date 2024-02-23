@@ -5,6 +5,8 @@ using UnityEngine;
 // Declare a public class named PlayerController that inherits from MonoBehaviour
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
+
     // Declare a private float variable named moveSpeed and assign a default value of 1f
     [SerializeField] private float moveSpeed = 1f;
 
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
+        Instance= this;
         // Initialize playerControls with a new instance of PlayerControls
         playerControls = new PlayerControls();
         // Get the Rigidbody2D component attached to the same GameObject and assign it to rb

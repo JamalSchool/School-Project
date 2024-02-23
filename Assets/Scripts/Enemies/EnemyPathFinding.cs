@@ -10,10 +10,12 @@ public class EnemyPathFinding : MonoBehaviour
     // Declare private variables for the Rigidbody2D component and the movement direction
     private Rigidbody2D rb;
     private Vector2 moveDir;
+    private Knockback knockback;
 
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
+        knockback = GetComponent<Knockback>();
         // Get the Rigidbody2D component attached to the same GameObject and assign it to rb
         rb = GetComponent<Rigidbody2D>();
     }
@@ -21,6 +23,7 @@ public class EnemyPathFinding : MonoBehaviour
     // FixedUpdate is called at a fixed interval, independent of frame rate
     private void FixedUpdate()
     {
+       if (knockback.gettingKnockedBack) { return; }
         // Move the Rigidbody2D's position based on the movement direction, moveSpeed, and fixed delta time
         rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
     }
