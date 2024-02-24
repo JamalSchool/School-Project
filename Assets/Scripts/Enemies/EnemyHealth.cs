@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour
 {
     // Private field to store the starting health of the object, serialized for inspection in the Unity Inspector.
     [SerializeField] private int startingHealth = 3;
+    [SerializeField] private GameObject deathVFXPrefab;
 
     // Private field to keep track of the current health of the object.
     private int currentHealth;
@@ -42,6 +43,7 @@ public class EnemyHealth : MonoBehaviour
         // Check if the current health is less than or equal to zero.
         if (currentHealth <= 0)
         {
+            Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             // If so, destroy the GameObject associated with this script.
             Destroy(gameObject);
         }

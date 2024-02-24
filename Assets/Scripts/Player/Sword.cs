@@ -7,12 +7,16 @@ public class Sword : MonoBehaviour
 {
     // Reference to the collider of the player's weapon.
     [SerializeField] private Transform weaponCollider;
+    [SerializeField] private float swordAttackCD = 0.5f;
 
     // References to various components and input controls needed for the sword mechanics.
     private PlayerControls playerControls;
     private Animator myAnimator;
     private PlayerController playerController;
     private ActiveWeapon activeWeapon;
+    private bool attackButtonDown, isAttacking = false;
+
+    
 
     // Awake is called when the script instance is being loaded.
     // It initializes component references and sets up input controls.
@@ -35,7 +39,8 @@ public class Sword : MonoBehaviour
     // It sets up an event listener for the attack action triggered by the player's input.
     private void Start()
     {
-        playerControls.Combat.Attack.started += _ => Attack();
+        playerControls.Combat.Attack.started += _ => StartAttacking();
+        playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
 
     // Update is called once per frame.
@@ -43,13 +48,35 @@ public class Sword : MonoBehaviour
     private void Update()
     {
         MouseFollowWithOffset();
+        Attack();
+    }
+
+    private void StartAttacking()
+    {
+        attackButtonDown = true;
+    }
+    private void StopAttacking()
+    {
+        attackButtonDown= false;
     }
 
     // Initiates the attack action.
     private void Attack()
     {
-        myAnimator.SetTrigger("Attack");
-        weaponCollider.gameObject.SetActive(true);
+        if (attackButtonDown && !isAttacking)
+        {
+            isAttacking=true;
+            myAnimator.SetTrigger("Attack");
+            weaponCollider.gameObject.SetActive(true);
+            StartCoroutine(AttackCDRoutine());
+
+        }
+    }
+
+    private IEnumerator AttackCDRoutine()
+    {
+        yield return new WaitForSeconds(swordAttackCD);
+        isAttacking = false;
     }
 
     // Deactivates the weapon collider after the attack animation is finished.
