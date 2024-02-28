@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator myAnimator;
     private SpriteRenderer mySpriteRender;
+    
 
     // Awake is called when the script instance is being loaded
     private void Awake()
@@ -29,6 +30,9 @@ public class PlayerController : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         // Get the SpriteRenderer component attached to the same GameObject and assign it to mySpriteRender
         mySpriteRender = GetComponent<SpriteRenderer>();
+         
+
+
     }
 
     // OnEnable is called when the object becomes enabled and active
