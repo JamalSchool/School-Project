@@ -13852,7 +13852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1355665878}
-  inventorySize: 10
+  inventorySize: 4
 --- !u!224 &1355665874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8793095446540313065, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
@@ -20909,6 +20909,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1263657729}
     m_Modifications:
+    - target: {fileID: 1142530946628994887, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
+      propertyPath: image
+      value: 
+      objectReference: {fileID: 832804323, guid: 2054fdbbae180b9408b8835db2d13a3a, type: 3}
+    - target: {fileID: 1142530946628994887, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
+      propertyPath: title
+      value: Blood Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142530946628994887, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
+      propertyPath: quantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142530946628994887, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
+      propertyPath: description
+      value: Blood of Olympus forged into a sword
+      objectReference: {fileID: 0}
     - target: {fileID: 3120845474236501250, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -21262,6 +21278,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 63c0bc750172cb34382f9808da346ea6, type: 2}
+    - target: {fileID: 9137264504705690994, guid: b603d18494da3604dbd9439e4cababde, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
