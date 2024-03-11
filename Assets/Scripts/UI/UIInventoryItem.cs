@@ -6,7 +6,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventoryItem : MonoBehaviour
+public class UIInventoryItem : MonoBehaviour, IPointerClickHandler, 
+    IBeginDragHandler, IEndDragHandler, IDropHandler, IDragHandler
 {
     [SerializeField]
     private Image itemImage; //displays item
@@ -16,7 +17,8 @@ public class UIInventoryItem : MonoBehaviour
     [SerializeField]
     private Image borderImage; 
 
-    public event Action<UIInventoryItem> OnItemClicked, OnItemDroppedOn, OnItemBeginDrag, OnItemEndDrag, OnRightMouseBtnClick;
+    public event Action<UIInventoryItem> OnItemClicked, OnItemDroppedOn, OnItemBeginDrag, 
+        OnItemEndDrag, OnRightMouseBtnClick;
 
     private bool empty = true;
 
@@ -47,28 +49,18 @@ public class UIInventoryItem : MonoBehaviour
     {
         borderImage.enabled = true;
     }
-    public void OnBeginDrag()
+    
+
+    
+   
+
+    
+
+    public void OnPointerClick(PointerEventData pointerData)
     {
         if (empty)
             return;
-        OnItemBeginDrag?.Invoke(this);
-    }
-
-    public void OnDrop()
-    {
-        OnItemDroppedOn?.Invoke(this);
-    }
-    public void OnEndDrag()
-    {
-        OnItemEndDrag?.Invoke(this);
-    }
-
-    public void OnPointerClick(BaseEventData data)
-    {
-        if(empty)
-            return;
-        PointerEventData pointerData= (PointerEventData)data;
-        if(pointerData.button == PointerEventData.InputButton.Right)
+        if (pointerData.button == PointerEventData.InputButton.Right)
         {
             OnRightMouseBtnClick?.Invoke(this);
         }
@@ -78,4 +70,25 @@ public class UIInventoryItem : MonoBehaviour
         }
     }
 
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        if (empty)
+            return;
+        OnItemBeginDrag?.Invoke(this);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        OnItemEndDrag?.Invoke(this);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        OnItemDroppedOn?.Invoke(this);
+    }
 }
