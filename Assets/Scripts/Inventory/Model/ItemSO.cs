@@ -18,5 +18,5 @@ public class ItemSO : ScriptableObject
     public string Description { get; set; }
 
     [field: SerializeField]
-    public Sprite ItemI { get; set; }
+    public Sprite ItemImage { get; set; }
 }
