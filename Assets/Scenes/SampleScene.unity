@@ -14068,7 +14068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1355665878}
-  inventorySize: 4
+  inventoryData: {fileID: 11400000, guid: 324bb534c181f374aa7b59b4e4c1ad44, type: 2}
 --- !u!224 &1355665874 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8793095446540313065, guid: 97bf0fe71a4d65441967fda2a9066d82, type: 3}
