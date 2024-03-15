@@ -72,6 +72,7 @@ namespace Inventory.UI
                 return;
             }
             OnSwapItems?.Invoke(currentlyDraggedItemIndex, index);
+            HandleItemSelection(inventoryItemUI);
 
         }
 
@@ -90,7 +91,7 @@ namespace Inventory.UI
             HandleItemSelection(inventoryItemUI);
             OnStartDragging?.Invoke(index);
         }
-        public void CreateDraggedUten(Sprite sprite, int quantity)
+        public void CreateDraggedItem(Sprite sprite, int quantity)
         {
             mouseFollower.Toggle(true);
             mouseFollower.SetData(sprite, quantity);
@@ -137,5 +138,13 @@ namespace Inventory.UI
             listOfUIItems[itemIndex].Select();
         }
 
+        internal void RestAllItems()
+        {
+            foreach (var item in listOfUIItems)
+            {
+                item.ResetData();
+                item.Deselect();
+            }
+        }
     }
 }
