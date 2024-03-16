@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealthPotion
   m_EditorClassIdentifier: 
   <IsStackable>k__BackingField: 1
-  <MaxStackSize>k__BackingField: 10
+  <MaxStackSize>k__BackingField: 50
   <Name>k__BackingField: HealthPotion
   <Description>k__BackingField: 'Heals Health
 
