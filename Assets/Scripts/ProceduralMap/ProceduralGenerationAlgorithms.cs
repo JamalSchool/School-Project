@@ -1,27 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public static class ProceduralGenerationAlgorithms 
+public static class ProceduralGenerationAlgorithms // this algortithm will be available for any other calsses that want access to this.
 {
     public static HashSet<Vector2Int> SimpleRandomWalk(Vector2Int startPosition, int walkLength)
     {
-        HashSet<Vector2Int> path= new HashSet<Vector2Int>();
+        // Create a HashSet to store the path of the random walk
+        HashSet<Vector2Int> path = new HashSet<Vector2Int>();
 
+        // Add the starting position to the path
         path.Add(startPosition);
+        
+
+        // Store the starting position as the previous position
         var previousposition = startPosition;
 
+        // Loop through the walk length to generate the random walk
         for (int i = 0; i < walkLength; i++)
         {
+            // Get a random cardinal direction (up, down, left, or right)
             var newPosition = previousposition + Direction2D.GetRandomCardinalDirection();
+
+            // Add the new position to the path
             path.Add(newPosition);
+
+            // Update the previous position to the new position for the next iteration
             previousposition = newPosition;
         }
-        return path;   
 
+        // Return the generated path of the random walk
+        return path;
     }
+   
+        
 
     public static List<Vector2Int> RandomWalkCorridor(Vector2Int startPosition, int corridorLength)
     {
@@ -104,20 +119,21 @@ public static class ProceduralGenerationAlgorithms
 
 public static class Direction2D
 {
-    public static List<Vector2Int> diagonalDirectionsList = new List<Vector2Int>
-    {
-        new Vector2Int(1,1), //UP-RIGHT
-        new Vector2Int(1,-1), //RIGHT-DOWN
-        new Vector2Int(-1,-1), //DOWN-LEFT
-        new Vector2Int(-1,1) //LEFT-UP
-    };
-
+    // Define a list of cardinal directions as Vector2Int values
     public static List<Vector2Int> cardinalDirectionsList = new List<Vector2Int>
     {
         new Vector2Int(0,1), //UP
         new Vector2Int(1,0), //RIGHT
         new Vector2Int(0,-1), //DOWN
         new Vector2Int(-1,0) //LEFT
+    };
+
+    public static List<Vector2Int> diagonalDirectionsList = new List<Vector2Int>
+    {
+        new Vector2Int(1,1), //UP-RIGHT
+        new Vector2Int(1,-1), //RIGHT-DOWN
+        new Vector2Int(-1,-1), //DOWN-LEFT
+        new Vector2Int(-1,1) //LEFT-UP
     };
 
     public static List<Vector2Int> eightDirectionsList = new List<Vector2Int>
@@ -135,6 +151,7 @@ public static class Direction2D
 
     public static Vector2Int GetRandomCardinalDirection()
     {
+        // Return a random cardinal direction from the cardinalDirectionsList
         return cardinalDirectionsList[Random.Range(0, cardinalDirectionsList.Count)];
     }
 }
