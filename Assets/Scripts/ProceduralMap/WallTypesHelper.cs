@@ -5,8 +5,10 @@ using UnityEngine;
 
 public static class WallTypesHelper
 {
+    // HashSet to represent the different configurations of the top wall
     public static HashSet<int> wallTop = new HashSet<int>
     {
+        // Binary representations of different top wall configurations
         0b1111,
         0b0110,
         0b0011,
@@ -17,24 +19,31 @@ public static class WallTypesHelper
         0b1011,
         0b0111
     };
-
+    // HashSet to represent the left side wall
     public static HashSet<int> wallSideLeft = new HashSet<int>
     {
+        // Binary representation of the left side wall
         0b0100
     };
 
+    // HashSet to represent the right side wall
     public static HashSet<int> wallSideRight = new HashSet<int>
     {
+        // Binary representation of the right side wall
         0b0001
     };
 
+    // HashSet to represent the bottom wall
     public static HashSet<int> wallBottm = new HashSet<int>
     {
+        // Binary representation of the bottom wall
         0b1000
     };
 
+    // HashSet to represent the inner corner walls at the bottom left
     public static HashSet<int> wallInnerCornerDownLeft = new HashSet<int>
     {
+         // Binary representations of different inner corner walls at the bottom left
         0b11110001,
         0b11100000,
         0b11110000,
@@ -54,9 +63,10 @@ public static class WallTypesHelper
         0b00100001,
         0b10010001
     };
-
+    // HashSet to represent the inner corner walls at the bottom right
     public static HashSet<int> wallInnerCornerDownRight = new HashSet<int>
     {
+         // Binary representations of different inner corner walls at the bottom right
         0b11000111,
         0b11000011,
         0b10000011,
@@ -77,31 +87,40 @@ public static class WallTypesHelper
         0b01000010
 
     };
-
+    // HashSet to represent the diagonal corner walls at the bottom left
     public static HashSet<int> wallDiagonalCornerDownLeft = new HashSet<int>
     {
+       // Binary representation of the diagonal corner wall at the bottom left
         0b01000000
     };
 
+    // HashSet to represent the diagonal corner walls at the bottom right
     public static HashSet<int> wallDiagonalCornerDownRight = new HashSet<int>
     {
+        // Binary representation of the diagonal corner wall at the bottom right
         0b00000001
     };
 
+    // HashSet to represent the diagonal corner walls at the top left
     public static HashSet<int> wallDiagonalCornerUpLeft = new HashSet<int>
     {
+         // Binary representations of different diagonal corner walls at the top left
         0b00010000,
         0b01010000,
     };
 
+    // HashSet to represent the diagonal corner walls at the top right
     public static HashSet<int> wallDiagonalCornerUpRight = new HashSet<int>
     {
+        // Binary representations of different diagonal corner walls at the top right
         0b00000100,
         0b00000101
     };
 
+    // HashSet to represent the full walls
     public static HashSet<int> wallFull = new HashSet<int>
     {
+        // Binary representations of different full walls
         0b1101,
         0b0101,
         0b1101,
@@ -109,8 +128,10 @@ public static class WallTypesHelper
 
     };
 
+    // HashSet to represent the full walls with eight directions
     public static HashSet<int> wallFullEightDirections = new HashSet<int>
     {
+        // Binary representations of different full walls with eight directions
         0b00010100,
         0b11100100,
         0b10010011,
@@ -148,8 +169,10 @@ public static class WallTypesHelper
 
     };
 
+    // HashSet to represent the bottom walls with eight directions
     public static HashSet<int> wallBottmEightDirections = new HashSet<int>
     {
+        // Binary representation of the bottom wall with eight directions
         0b01000001
     };
 
