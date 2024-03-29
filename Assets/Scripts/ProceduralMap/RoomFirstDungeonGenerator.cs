@@ -14,7 +14,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     [SerializeField]
     [Range(0, 10)]
-    private int offset = 1; // Offset value used for creating rooms, serialized for adjustment in the Unity Inspector.
+    private int offset = 6; // Offset value used for creating rooms, serialized for adjustment in the Unity Inspector.
 
     [SerializeField]
     private bool randomWalkRooms = false; // Indicates whether to create rooms using random walk algorithm, serialized for adjustment in the Unity Inspector.

@@ -6,6 +6,8 @@ using UnityEngine.Tilemaps;
 
 public class TilemapVisualizer : MonoBehaviour
 {
+    
+
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap; // Declares serialized fields to hold references to the floor and wall tilemaps.
 
@@ -30,6 +32,7 @@ public class TilemapVisualizer : MonoBehaviour
         {
             // Paint a single tile on the tilemap at the current position with the specified tile
             PaintSingleTile(tilemap, tile, position);
+            
         }
     }
 
